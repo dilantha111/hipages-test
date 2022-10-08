@@ -1,0 +1,68 @@
+.card {
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-top__logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-top__logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 10px 20px 10px 40px;
+}
+
+.card-top__logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.card-top__description {
+  text-align: left;
+}
+
+.card-top__name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-top__date {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.card__address {
+  display: flex;
+  margin: 10px 0;
+}
+
+.card-address__section {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.card-address__section-icon {
+  margin-right: 5px;
+  font-weight: 300;
+  font-size: 1.2rem;
+}

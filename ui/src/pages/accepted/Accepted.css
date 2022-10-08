@@ -1,0 +1,32 @@
+.card__contact {
+  display: flex;
+  margin: 10px 0 10px 30px;
+}
+
+.card-contact__telephone,
+.card-contact__email {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ff7b12;
+}
+
+.card-contact__telephone {
+  margin-right: 20px;
+}
+
+.card-contact__tele-icon,
+.card-contact__email-icon {
+  margin-right: 5px;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.card__description {
+  text-align: left;
+  margin: 0px 0 20px 30px;
+  font-size: 0.8rem;
+  font-weight: 300;
+}

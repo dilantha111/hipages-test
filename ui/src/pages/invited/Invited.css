@@ -1,0 +1,39 @@
+.card__body {
+  text-align: left;
+  margin: 20px 0 20px 30px;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.card__footer {
+  display: flex;
+  margin: 20px 0 20px 30px;
+  justify-content: left;
+  align-items: center;
+}
+
+.card-footer__btn--accpet,
+.card-footer__btn--decline {
+  text-transform: capitalize;
+}
+
+.card-footer__btn--accpet {
+  margin-right: 10px;
+  color: white;
+}
+
+.card-footer__btn--decline {
+  margin-right: 20px;
+  background-color: #eeeeee;
+}
+
+.card-footer__amount {
+  margin-right: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-footer__description {
+  font-size: 1rem;
+  font-weight: 300;
+}
