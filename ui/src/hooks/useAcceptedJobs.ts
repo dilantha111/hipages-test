@@ -5,11 +5,11 @@ const useAcceptedJobs = (formatter?: Function) => {
   return useQuery(['acceptedJobs'], async () => {
     const { data } = await getAcceptedJobs();
 
-    if (formatter) {
-      return data.jobs!!.map(formatter);
+    if (formatter != null) {
+      return data.jobs!.map(formatter);
     }
 
-    return data.jobs!!;
+    return data.jobs!;
   });
 };
 

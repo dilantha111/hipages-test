@@ -9,7 +9,7 @@ import { formatAcceptedJob } from '../../utils/modelFormatters';
 import { AcceptedJob } from '../../types';
 
 const Accepted: React.FC = () => {
-  const { status, data: jobs, error, isFetching } = useAcceptedJobs(formatAcceptedJob);
+  const { data: jobs } = useAcceptedJobs(formatAcceptedJob);
 
   const cardBody = (job: AcceptedJob): ReactElement => {
     return (
@@ -31,7 +31,7 @@ const Accepted: React.FC = () => {
 
   return (
     <>
-      {jobs
+      {jobs !== undefined
         ? jobs.map((job: AcceptedJob) => (
             <JobCard
               key={job.id}

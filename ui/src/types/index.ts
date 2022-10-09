@@ -1,4 +1,4 @@
-export const JobType = { new: 'new', accepted: 'accepted' };
+export const JobType = { new: 'new', accepted: 'accepted', declined: 'declined' };
 
 export interface InvitedJob {
   id: string;
@@ -15,7 +15,7 @@ export type AcceptedJob = InvitedJob & { contactPhone: string; contactEmail: str
 
 export interface JobApiObj {
   id: string;
-  status: 'new' | 'accepted';
+  status: 'new' | 'accepted' | 'declined';
   contactName: string;
   contactPhone: string;
   contactEmail: string;
