@@ -31,7 +31,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: hipages
       MYSQL_DATABASE: hipages
+      MYSQL_TCP_PORT: 3307
     ports:
-      - "3307:3306"
+      - "3307:3307"
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d

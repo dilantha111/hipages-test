@@ -15,12 +15,6 @@ const sequelizeConnection = new Sequelize(DATABASE, DB_USER, PASSWORD, {
   host: HOST,
   port: DB_PORT,
   dialect: 'mysql',
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000,
-  },
 });
 
 export default sequelizeConnection;
