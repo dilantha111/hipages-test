@@ -61,6 +61,10 @@
   font-size: 0.9rem;
 }
 
+.card-address__section span {
+  text-transform: capitalize;
+}
+
 .card-address__section-icon {
   margin-right: 5px;
   font-weight: 300;

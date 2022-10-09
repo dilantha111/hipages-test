@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import { AppBar, createTheme, Tab, Tabs } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Invited = React.lazy(async () => await import('./pages/invited'));
 const Accepted = React.lazy(async () => await import('./pages/accepted'));
@@ -28,6 +29,8 @@ const theme = createTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
 const App: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
   const navigate = useNavigate();
@@ -49,40 +52,42 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="md">
-        <AppBar position="static" className="AppBar">
-          <Tabs
-            className="tabContainer"
-            value={tabValue}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="inherit"
-            variant="fullWidth"
-            aria-label="full width tabs example">
-            <Tab label="Invited" />
-            <Tab label="Accepted" />
-          </Tabs>
-        </AppBar>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <React.Suspense fallback={<>....</>}>
-                <Invited />
-              </React.Suspense>
-            }
-          />
+      <QueryClientProvider client={queryClient}>
+        <Container maxWidth="md">
+          <AppBar position="static" className="AppBar">
+            <Tabs
+              className="tabContainer"
+              value={tabValue}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="inherit"
+              variant="fullWidth"
+              aria-label="full width tabs example">
+              <Tab label="Invited" />
+              <Tab label="Accepted" />
+            </Tabs>
+          </AppBar>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <React.Suspense fallback={<>....</>}>
+                  <Invited />
+                </React.Suspense>
+              }
+            />
 
-          <Route
-            path="/accepted"
-            element={
-              <React.Suspense fallback={<>....</>}>
-                <Accepted />
-              </React.Suspense>
-            }
-          />
-        </Routes>
-      </Container>
+            <Route
+              path="/accepted"
+              element={
+                <React.Suspense fallback={<>....</>}>
+                  <Accepted />
+                </React.Suspense>
+              }
+            />
+          </Routes>
+        </Container>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };

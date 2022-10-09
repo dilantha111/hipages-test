@@ -4,50 +4,44 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 import './Accepted.css';
 import JobCard from '../../components/job-card';
+import useAcceptedJobs from '../../hooks/useAcceptedJobs';
+import { formatAcceptedJob } from '../../utils/modelFormatters';
+import { AcceptedJob } from '../../types';
 
 const Accepted: React.FC = () => {
-  const jobs = [
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-    { jobName: 'Bill' },
-  ];
+  const { status, data: jobs, error, isFetching } = useAcceptedJobs(formatAcceptedJob);
 
-  const cardBody = (): ReactElement => {
+  const cardBody = (job: AcceptedJob): ReactElement => {
     return (
       <>
         <div className="card__contact">
           <div className="card-contact__telephone">
-            <PhoneOutlinedIcon className="card-contact__tele-icon" /> <span>0412345678</span>
+            <PhoneOutlinedIcon className="card-contact__tele-icon" />{' '}
+            <span> {job.contactPhone} </span>
           </div>
           <div className="card-contact__email">
             <EmailOutlinedIcon className="card-contact__email-icon" />
-            <span>fake@mailinator.com</span>
+            <span> {job.contactEmail} </span>
           </div>
         </div>
-        <div className="card__description">
-          Need to paint two aluminium windows and a sliding glass door
-        </div>
+        <div className="card__description">{job.description}</div>
       </>
     );
   };
 
   return (
     <>
-      {jobs.map(({ jobName }, index) => (
-        <JobCard
-          index={index}
-          key={index}
-          type={'ACCEPTED'}
-          logoColor={'#737986'}
-          cardBody={cardBody()}
-        />
-      ))}
+      {jobs
+        ? jobs.map((job: AcceptedJob) => (
+            <JobCard
+              key={job.id}
+              job={job}
+              type={'ACCEPTED'}
+              logoColor={'#737986'}
+              cardBody={cardBody(job)}
+            />
+          ))
+        : null}
     </>
   );
 };

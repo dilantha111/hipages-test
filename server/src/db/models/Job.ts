@@ -6,7 +6,7 @@ import Suburb from './Suburb';
 class Job extends Model {
   public id!: number;
   public status!: string;
-  public contactNname!: string;
+  public contactName!: string;
   public contactPhone!: string;
   public contactEmail!: string;
   public price!: string;
@@ -28,7 +28,7 @@ Job.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    contactNname: {
+    contactName: {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'contact_name',
